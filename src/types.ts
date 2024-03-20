@@ -8,10 +8,10 @@ export type SiteConfig = {
 		locale: string | string[] | undefined;
 		options: Intl.DateTimeFormatOptions;
 	};
-	webmentions?: {
-		link: string;
-		pingback?: string;
-	};
+	// webmentions?: {
+	// 	link: string;
+	// 	pingback?: string;
+	// };
 };
 
 export type PaginationLink = {

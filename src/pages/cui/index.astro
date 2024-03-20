@@ -1,0 +1,38 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "I'm a starter theme for Astro.build",
+	title: "About",
+};
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap"
+	rel="stylesheet"
+/>
+<PageLayout meta={meta}>
+	<div id="app" style="border: 5px double #333333;"></div>
+	<script src="./main.ts"></script>
+</PageLayout>
+
+<style>
+	.terminal {
+		height: 70vh;
+		width: 100%;
+	}
+
+	.xterm .xterm-viewport {
+		background-color: transparent;
+		overflow-y: scroll;
+		cursor: default;
+		right: 0;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		scrollbar-width: var(--highlight) var(--dark);
+		scrollbar-width: thin;
+	}
+</style>

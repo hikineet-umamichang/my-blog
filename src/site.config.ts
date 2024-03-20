@@ -3,27 +3,27 @@ import type { AstroExpressiveCodeOptions } from "astro-expressive-code";
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: "Chris Williams",
+	author: "hikineet-umamichang",
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: "Astro Theme Cactus",
+	title: "Umamichang's Nest",
 	// Meta property used as the default description meta property
-	description: "An opinionated starter theme for Astro",
+	description: "書き散らかしと雑記",
 	// HTML lang property, found in src/layouts/Base.astro L:18
-	lang: "en-GB",
+	lang: "ja",
 	// Meta property, found in src/components/BaseHead.astro L:42
-	ogLocale: "en_GB",
+	ogLocale: "ja",
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: "en-GB",
+		locale: "ja",
 		options: {
-			day: "numeric",
-			month: "short",
+			day: "2-digit",
+			month: "2-digit",
 			year: "numeric",
 		},
 	},
-	webmentions: {
-		link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
-	},
+	// webmentions: {
+	// 	link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
+	// },
 };
 
 // Used to generate links in both the Header & Footer.
@@ -40,12 +40,16 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 		title: "Blog",
 		path: "/posts/",
 	},
+	{
+		title: "CUI",
+		path: "/cui/",
+	},
 ];
 
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ["dracula", "github-light"],
+	themes: ["github-light", "dracula"],
 	themeCssSelector(theme, { styleVariants }) {
 		// If one dark and one light theme are available
 		// generate theme CSS selectors compatible with cactus-theme dark mode switch
