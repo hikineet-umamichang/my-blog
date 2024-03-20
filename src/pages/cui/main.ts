@@ -4,7 +4,7 @@ import { WebLinksAddon } from "xterm-addon-web-links";
 import { Unicode11Addon } from "xterm-addon-unicode11";
 import { ImageAddon } from "xterm-addon-image";
 import { Readline } from "xterm-readline";
-import { my_eval } from "../pages/cui/modules/my_eval";
+import { my_eval } from "./modules/my_eval";
 
 import "xterm/css/xterm.css";
 import "./style.css";

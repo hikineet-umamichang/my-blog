@@ -19,5 +19,5 @@
 	"[astro]": {
 		"editor.defaultFormatter": "astro-build.astro-vscode"
 	},
-	"liveServer.settings.root": "/dist"
+	"liveServer.settings.root": "./dist"
 }
