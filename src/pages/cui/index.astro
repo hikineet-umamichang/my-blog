@@ -10,7 +10,7 @@ const meta = {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.min.css" />
 
 <PageLayout meta={meta}>
-	<div id="app" style="border: 5px double #333333"></div>
+	<div id="app"></div>
 </PageLayout>
 <script>
 	import { Terminal } from "xterm";
@@ -63,6 +63,8 @@ const meta = {
 	#app {
 		height: 70vh;
 		width: 100%;
+		border: 5px double #333333;
+		box-sizing: border-box;
 	}
 
 	.xterm .xterm-viewport {
