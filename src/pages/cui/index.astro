@@ -3,23 +3,64 @@ import PageLayout from "@/layouts/Base.astro";
 
 const meta = {
 	description: "I'm a starter theme for Astro.build",
-	title: "About",
+	title: "CUI",
 };
 ---
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-	href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap"
-	rel="stylesheet"
-/>
-<PageLayout meta={meta}>
-	<div id="app" style="border: 5px double #333333;"></div>
-	<script src="./main.ts"></script>
-</PageLayout>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm@5.3.0/css/xterm.min.css" />
 
+<PageLayout meta={meta}>
+	<div id="app" style="border: 5px double #333333"></div>
+</PageLayout>
+<script>
+	import { Terminal } from "xterm";
+	import { FitAddon } from "xterm-addon-fit";
+	import { WebLinksAddon } from "xterm-addon-web-links";
+	import { Unicode11Addon } from "xterm-addon-unicode11";
+	import { ImageAddon } from "xterm-addon-image";
+	import { Readline } from "xterm-readline";
+
+	const term = new Terminal({
+		cursorBlink: true,
+		allowProposedApi: true,
+	});
+
+	const fitaddon = new FitAddon();
+	const webLinkAddon = new WebLinksAddon();
+	const unicode11Addon = new Unicode11Addon();
+	const imageAddon = new ImageAddon();
+	const rl = new Readline();
+
+	term.open(document.getElementById("app") as HTMLElement);
+
+	[fitaddon, webLinkAddon, unicode11Addon, imageAddon, rl].map((e) => term.loadAddon(e));
+
+	term.focus();
+	fitaddon.activate(term);
+	webLinkAddon.activate(term);
+	unicode11Addon.activate(term);
+	imageAddon.activate(term);
+
+	term.unicode.activeVersion = "11";
+
+	fitaddon.fit();
+	window.addEventListener("resize", () => fitaddon.fit());
+
+	function readLine() {
+		rl.read("\n$ ").then(processLine);
+	}
+
+	async function processLine(text: string) {
+		const res = text;
+		console.log(res);
+		rl.println(res);
+		readLine();
+	}
+
+	readLine();
+</script>
 <style>
-	.terminal {
+	#app {
 		height: 70vh;
 		width: 100%;
 	}

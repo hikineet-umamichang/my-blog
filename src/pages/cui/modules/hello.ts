@@ -1,3 +1,3 @@
 export const hello = (args: string[]) => {
-  return `Hello, World! ${args.join(" ")}`;
+	return `Hello, World! ${args.join(" ")}`;
 };

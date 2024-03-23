@@ -14,16 +14,16 @@ export const siteConfig: SiteConfig = {
 	ogLocale: "ja",
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: "ja",
+		locale: "en-GB",
 		options: {
 			day: "2-digit",
 			month: "2-digit",
 			year: "numeric",
 		},
 	},
-	// webmentions: {
-	// 	link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
-	// },
+	webmentions: {
+		link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
+	},
 };
 
 // Used to generate links in both the Header & Footer.
