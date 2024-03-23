@@ -8,7 +8,8 @@
 		"postbuild": "pagefind --site dist",
 		"preview": "astro preview",
 		"format": "prettier -w --cache . && prettier -w --cache **/*.astro",
-		"check": "astro check"
+		"check": "astro check",
+		"copy": "rimraf src/content/post && cp -aR /mnt/c/Users/1308y/Documents/post src/content/post"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.5.9",
@@ -63,6 +64,7 @@
 		"prettier-plugin-tailwindcss": "^0.5.12",
 		"reading-time": "^1.5.0",
 		"remark-unwrap-images": "^4.0.0",
+		"rimraf": "^5.0.5",
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5.4.2"
 	},

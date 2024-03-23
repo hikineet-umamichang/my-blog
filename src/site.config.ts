@@ -14,7 +14,7 @@ export const siteConfig: SiteConfig = {
 	ogLocale: "ja",
 	// Date.prototype.toLocaleDateString() parameters, found in src/utils/date.ts.
 	date: {
-		locale: "en-GB",
+		locale: "ja",
 		options: {
 			day: "2-digit",
 			month: "2-digit",
@@ -49,7 +49,7 @@ export const menuLinks: Array<{ title: string; path: string }> = [
 // https://expressive-code.com/reference/configuration/
 export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ["github-light", "dracula"],
+	themes: ["dracula", "github-light"],
 	themeCssSelector(theme, { styleVariants }) {
 		// If one dark and one light theme are available
 		// generate theme CSS selectors compatible with cactus-theme dark mode switch
