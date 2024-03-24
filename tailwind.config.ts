@@ -32,8 +32,11 @@ export default {
 			},
 			fontFamily: {
 				// Add any custom fonts here
-				sans: [...fontFamily.sans],
-				serif: [...fontFamily.serif],
+				// sans: [...fontFamily.sans],
+				// serif: [...fontFamily.serif],
+				serif: ["Noto Serif JP", "serif"],
+				relics: ["Times New Roman", "MS PGothic"],
+				ui: ["system-ui", "-apple-system"],
 			},
 			transitionProperty: {
 				height: "height",
