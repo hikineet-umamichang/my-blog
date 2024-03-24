@@ -13,7 +13,7 @@ import { expressiveCodeOptions } from "./src/site.config";
 // https://astro.build/config
 export default defineConfig({
 	// ! Please remember to replace the following site property with your own domain
-	site: "https://astro-cactus.chriswilliams.dev/",
+	site: "https://umamichang.dev/",
 	markdown: {
 		remarkPlugins: [remarkUnwrapImages, remarkReadingTime],
 		rehypePlugins: [
@@ -33,7 +33,13 @@ export default defineConfig({
 	},
 	integrations: [
 		expressiveCode(expressiveCodeOptions),
-		icon(),
+		icon({
+			include: {
+				mdi: ["gmail", "github"],
+				icons: ["Atcoder", "twitter"],
+			},
+			iconDir: "src/icons",
+		}),
 		tailwind({
 			applyBaseStyles: false,
 		}),

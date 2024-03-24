@@ -7,79 +7,38 @@ import { getAllPosts, sortMDByDate } from "@/utils";
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
-
-const cactusTech: { desc: string; href: string; title: string }[] = [
-	{
-		desc: "Build fast websites, faster.",
-		href: "https://astro.build",
-		title: "Astro",
-	},
-	{
-		desc: "Rapidly build modern websites without ever leaving your HTML.",
-		href: "https://tailwindcss.com",
-		title: "Tailwind CSS",
-	},
-	{
-		desc: "Simple and easy-to-use markup language.",
-		href: "https://www.markdownguide.org/",
-		title: "Markdown",
-	},
-	{
-		desc: "Markdown for the component era.",
-		href: "https://mdxjs.com/",
-		title: "MDX",
-	},
-	{
-		desc: "Generating png Open Graph images for blog posts.",
-		href: "https://github.com/vercel/satori",
-		title: "Satori",
-	},
-	{
-		desc: "A fully static search library.",
-		href: "https://pagefind.app/",
-		title: "Pagefind",
-	},
-	{
-		desc: "An easy to use Icon component for Astro.",
-		href: "https://github.com/natemoo-re/astro-icon#readme",
-		title: "Astro Icon",
-	},
-	{
-		desc: "Highly customisable source code & syntax highlighter",
-		href: "https://expressive-code.com/",
-		title: "Expressive Code",
-	},
-];
 ---
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
 		<h1 class="title mb-6">It’s nice to have you here</h1>
 		<p class="mb-4">
-			"Umamichang's Nest"へようこそ。 nestとは巣や居場所の意味、
-			ここは、作ったものや書いたものをのっける場所として作られた私自身のためのねぐらです。
-			なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
-		</p>
-		<p>
 			Welcome to "Umamichang's Nest". The term "nest" conveys a sense of a cozy abode or a
 			sanctuary, and indeed, this is my own cozy corner crafted out of the desire for a space to
 			share my creations and writings. Should anything here strike a chord with you, dear visitor,
 			it would be my utmost delight.
 		</p>
+		<p>
+			"Umamichang's Nest"へようこそ。 nestとは巣や居場所の意味。
+			ここは、作ったものや書いたものを保存する場所として作った私自身のためのねぐらです。
+			なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
+		</p>
+
 		<SocialList />
 	</section>
 
 	<section aria-label="my works" class="mt-16">
 		<h2 class="title mb-4 text-xl">Contents</h2>
+
 		<table class="table-auto" cellpadding="5">
 			<tbody>
 				<tr>
-					<td><a href="/posts/">📜ブログ</a></td>
-					<td>これ。Astroのテンプレート「Astro Cactus」をカスタマイズした静的サイト</td>
+					<td><a href="/posts/" class="cactus-link">📜ブログ</a></td>
+					<td>今見てるこれ。Astroのテンプレート「Astro Cactus」をカスタマイズした静的サイト</td>
 				</tr>
 				<tr>
-					<td><a href="/cui/">💻CUIモード</a></td>
-					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ(※スマホだと表示が乱れます)</td>
+					<td><a href="/cui/" class="cactus-link">💻CUIモード</a></td>
+					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ(※現在工事中)</td>
 				</tr>
 				<!-- <tr>
 				<td>AIワードウルフ</td>
