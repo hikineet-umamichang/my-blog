@@ -56,12 +56,39 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 	<section>
 		<h1 class="title mb-6">Hello World!</h1>
 		<p class="mb-4">
-			Hi, I’m a theme for Astro, an example of how you can use this starter to create a personal
-			blog. If you want to know more about how you can customise me, add more posts, and make it
-			your own, click on the github icon link below and it will take you to my repo.
+			"Umamichang's Nest"へようこそ。 nestとは巣や居場所の意味、
+			ここは、作ったものや書いたものをのっける場所として作られた私のためのねぐらです。
+			なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
+		</p>
+		<p>
+			Welcome to "Umamichang's Nest". The term "nest" conveys a sense of a cozy abode or a
+			sanctuary, and indeed, this is my own cozy corner crafted out of the desire for a space to
+			share my creations and writings. Should anything here strike a chord with you, dear visitor,
+			it would be my utmost delight.
 		</p>
 		<SocialList />
 	</section>
+
+	<section aria-label="my works" class="mt-16">
+		<h2 class="title mb-4 text-xl">Contents</h2>
+		<table class="table-auto" cellpadding="5">
+			<tbody>
+				<tr>
+					<td><a href="/posts/">📜ブログ</a></td>
+					<td>これ。Astroのテンプレート「Astro Cactus」をカスタマイズした静的サイト</td>
+				</tr>
+				<tr>
+					<td><a href="/cui/">💻CUIモード</a></td>
+					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ(※スマホだと表示が乱れます)</td>
+				</tr>
+				<!-- <tr>
+				<td>AIワードウルフ</td>
+				<td>ChatGPTを利用したワードウルフのお題作成アプリ</td>
+			</tr> -->
+			</tbody>
+		</table>
+	</section>
+
 	<section aria-label="Blog post list" class="mt-16">
 		<h2 class="title mb-4 text-xl">Posts</h2>
 		<ul class="space-y-4">
@@ -75,3 +102,14 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 		</ul>
 	</section>
 </PageLayout>
+
+<!-- 
+"Umamichang's Nest"へようこそ。
+nestとは巣や居場所の意味、
+ここは、作ったものや書いたものをのっける場所が欲しくて作った私のためのねぐらです。
+なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
+
+Welcome to Umamichang's Nest,
+where, as the saying goes, 'every bird finds its nest.'
+Here, nestled within these digital branches, I've fashioned a haven, a sanctuary, if you will, to house my creations and musings. As the poet Rumi once mused, 'Let yourself be silently drawn by the strange pull of what you really love. It will not lead you astray.' So, if anything within these virtual walls resonates with you, consider it a serendipitous encounter.
+-->
