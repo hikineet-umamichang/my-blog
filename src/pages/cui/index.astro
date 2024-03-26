@@ -17,8 +17,21 @@ const meta = {
 
 <PageLayout meta={meta}>
 	<div id="app"></div>
+	<label for="font_size_select" class="">font size</label>
+	<select name="font size" id="font_size_select" class="m-2">
+		<option value="" selected></option>
+		<option value="10">10</option>
+		<option value="12">12</option>
+		<option value="14">14</option>
+		<option value="16">16</option>
+		<option value="18">18 </option>
+		<option value="20">20 </option>
+		<option value="22">22 </option>
+	</select>
 </PageLayout>
 <script>
+	import { my_eval } from "../cui/modules/my_eval";
+
 	import { Terminal } from "xterm";
 	import { FitAddon } from "xterm-addon-fit";
 	import { WebLinksAddon } from "xterm-addon-web-links";
@@ -51,22 +64,45 @@ const meta = {
 
 	term.unicode.activeVersion = "11";
 
-	term.refresh(0, 0);
 	fitaddon.fit();
 	window.addEventListener("resize", () => fitaddon.fit());
+
+	term.refresh(0, term.rows - 1);
 
 	function readLine() {
 		rl.read("\n$ ").then(processLine);
 	}
 
 	async function processLine(text: string) {
-		const res = text;
+		const res = await my_eval(text);
 		console.log(res);
 		rl.println(res);
 		readLine();
 	}
 
-	readLine();
+	window.onload = function () {
+		if (window.name != "any") {
+			rl.println("now loading...");
+			location.reload();
+			window.name = "any";
+		} else {
+			window.name = "";
+		}
+	};
+
+	const selectedFontSize = document.getElementById("font_size_select");
+
+	selectedFontSize?.addEventListener("change", (e) => {
+		const selectednum = parseInt((e.target as HTMLSelectElement).value);
+		console.log(selectednum);
+		term.options.fontSize = selectednum;
+		term.refresh(0, term.rows - 1);
+		fitaddon.fit();
+	});
+
+	setTimeout(function () {
+		readLine();
+	}, 500);
 </script>
 <style>
 	#app {
