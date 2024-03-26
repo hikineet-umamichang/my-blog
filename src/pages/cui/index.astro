@@ -43,6 +43,7 @@ const meta = {
 	const term = new Terminal({
 		fontSize: 16,
 		cursorBlink: true,
+		cursorStyle: "underline",
 		allowProposedApi: true,
 		fontFamily: "Source Code Pro",
 	});
@@ -54,13 +55,6 @@ const meta = {
 	const rl = new Readline();
 
 	term.open(document.getElementById("app") as HTMLElement);
-
-	if (window.name != "any") {
-		location.reload();
-		window.name = "any";
-	} else {
-		window.name = "";
-	}
 
 	[fitaddon, webLinkAddon, unicode11Addon, imageAddon, rl].map((e) => term.loadAddon(e));
 
@@ -75,27 +69,47 @@ const meta = {
 	fitaddon.fit();
 	window.addEventListener("resize", () => fitaddon.fit());
 
+	const selectedFontSize = document.getElementById("font_size_select");
+
+	selectedFontSize?.addEventListener("change", (e) => {
+		const selectednum = parseInt((e.target as HTMLSelectElement).value);
+		console.log(selectednum);
+		term.options.fontSize = selectednum;
+		term.refresh(0, term.rows - 1);
+		fitaddon.fit();
+	});
+
+	if (window.name != "any") {
+		location.reload();
+		window.name = "any";
+	} else {
+		window.name = "";
+	}
+
 	function readLine() {
 		rl.read("\n$ ").then(processLine);
 	}
 
-	term.write("now loading...");
+	rl.print("now loading...");
 	let count = 0;
 	const intervalId = setInterval(() => {
 		if (count % 4 == 0) {
-			term.write(`\\`);
+			rl.print(`\\`);
 		} else if (count % 4 == 1) {
-			term.write(`|`);
+			rl.print(`|`);
 		} else if (count % 4 == 2) {
-			term.write(`/`);
+			rl.print(`/`);
 		} else if (count % 4 == 3) {
-			term.write(`-`);
+			rl.print(`-`);
 		}
-		term.write("\x1b[1D");
+		rl.print("\b");
 
 		count++;
 		if (count === 10) {
 			clearInterval(intervalId);
+			rl.print("\x1b[2J");
+			rl.print("\x1b[1G");
+			rl.println('To see what commands are available, run "help" command.');
 			readLine();
 		}
 	}, 500); // 500ミリ秒 = 0.5秒
@@ -106,16 +120,6 @@ const meta = {
 		rl.println(res);
 		readLine();
 	}
-
-	const selectedFontSize = document.getElementById("font_size_select");
-
-	selectedFontSize?.addEventListener("change", (e) => {
-		const selectednum = parseInt((e.target as HTMLSelectElement).value);
-		console.log(selectednum);
-		term.options.fontSize = selectednum;
-		term.refresh(0, term.rows - 1);
-		fitaddon.fit();
-	});
 </script>
 <style>
 	#app {
