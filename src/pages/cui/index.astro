@@ -38,6 +38,7 @@ const meta = {
 	import { Unicode11Addon } from "xterm-addon-unicode11";
 	import { ImageAddon } from "xterm-addon-image";
 	import { Readline } from "xterm-readline";
+	import { reference } from "astro:content";
 
 	const term = new Terminal({
 		fontSize: 16,
@@ -54,6 +55,13 @@ const meta = {
 
 	term.open(document.getElementById("app") as HTMLElement);
 
+	if (window.name != "any") {
+		location.reload();
+		window.name = "any";
+	} else {
+		window.name = "";
+	}
+
 	[fitaddon, webLinkAddon, unicode11Addon, imageAddon, rl].map((e) => term.loadAddon(e));
 
 	term.focus();
@@ -67,11 +75,30 @@ const meta = {
 	fitaddon.fit();
 	window.addEventListener("resize", () => fitaddon.fit());
 
-	term.refresh(0, term.rows - 1);
-
 	function readLine() {
 		rl.read("\n$ ").then(processLine);
 	}
+
+	term.write("now loading...");
+	let count = 0;
+	const intervalId = setInterval(() => {
+		if (count % 4 == 0) {
+			term.write(`\\`);
+		} else if (count % 4 == 1) {
+			term.write(`|`);
+		} else if (count % 4 == 2) {
+			term.write(`/`);
+		} else if (count % 4 == 3) {
+			term.write(`-`);
+		}
+		term.write("\x1b[1D");
+
+		count++;
+		if (count === 10) {
+			clearInterval(intervalId);
+			readLine();
+		}
+	}, 500); // 500ミリ秒 = 0.5秒
 
 	async function processLine(text: string) {
 		const res = await my_eval(text);
@@ -79,16 +106,6 @@ const meta = {
 		rl.println(res);
 		readLine();
 	}
-
-	window.onload = function () {
-		if (window.name != "any") {
-			rl.println("now loading...");
-			location.reload();
-			window.name = "any";
-		} else {
-			window.name = "";
-		}
-	};
 
 	const selectedFontSize = document.getElementById("font_size_select");
 
@@ -99,10 +116,6 @@ const meta = {
 		term.refresh(0, term.rows - 1);
 		fitaddon.fit();
 	});
-
-	setTimeout(function () {
-		readLine();
-	}, 500);
 </script>
 <style>
 	#app {
