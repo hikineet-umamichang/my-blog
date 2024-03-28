@@ -38,10 +38,9 @@ const meta = {
 	import { Unicode11Addon } from "xterm-addon-unicode11";
 	import { ImageAddon } from "xterm-addon-image";
 	import { Readline } from "xterm-readline";
-	import { reference } from "astro:content";
 
 	const term = new Terminal({
-		fontSize: 16,
+		fontSize: 10,
 		cursorBlink: true,
 		cursorStyle: "underline",
 		allowProposedApi: true,
@@ -79,11 +78,24 @@ const meta = {
 		fitaddon.fit();
 	});
 
-	if (window.name != "any") {
-		location.reload();
-		window.name = "any";
-	} else {
-		window.name = "";
+	async function processLine(text: string) {
+		const res = await my_eval(text, term.cols, term.rows);
+		// console.log(res);
+		if (typeof res == "string") {
+			rl.println(res);
+			readLine();
+		} else {
+			let count = 0;
+			const intervalId = setInterval(() => {
+				rl.print(res[count]);
+				count++;
+				if (count >= res.length) {
+					clearInterval(intervalId);
+					rl.println("");
+					readLine();
+				}
+			}, 50);
+		}
 	}
 
 	function readLine() {
@@ -105,28 +117,23 @@ const meta = {
 		rl.print("\b");
 
 		count++;
-		if (count === 10) {
+		if (count === 3) {
 			clearInterval(intervalId);
+			term.refresh(0, term.rows - 1);
+			fitaddon.fit();
 			rl.print("\x1b[2J");
 			rl.print("\x1b[1G");
 			rl.println('To see what commands are available, run "help" command.');
 			readLine();
 		}
 	}, 500); // 500ミリ秒 = 0.5秒
-
-	async function processLine(text: string) {
-		const res = await my_eval(text);
-		console.log(res);
-		rl.println(res);
-		readLine();
-	}
 </script>
 <style>
 	#app {
 		height: 70vh;
 		width: 100%;
-		border: 5px double #333333;
-		box-sizing: border-box;
+		/* border: 5px double #333333;
+		box-sizing: border-box; */
 	}
 
 	.xterm .xterm-viewport {

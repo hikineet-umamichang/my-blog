@@ -2,8 +2,9 @@ import { bio } from "./bio";
 import { hello } from "./hello";
 import { help } from "./help";
 import { fetchPokemonImage } from "./poke";
+import { sl } from "./sl";
 
-export async function my_eval(prompt: string) {
+export async function my_eval(prompt: string, w: number, h: number) {
 	if (prompt.replace(/ /g, "") == "") {
 		return "";
 	}
@@ -17,8 +18,10 @@ export async function my_eval(prompt: string) {
 		case "help":
 			return help(args);
 		case "bio":
-			window.open("https://twitter.com/umamichang_dev");
+			// window.open("https://twitter.com/umamichang_dev");
 			return bio(args);
+		case "sl":
+			return sl(args, h, w);
 		default:
 			return `Your input is: ${prompt}.
 Could not find command "${command}".`;
