@@ -102,6 +102,13 @@ const meta = {
 		rl.read("\n$ ").then(processLine);
 	}
 
+	const reloadOnce = () => {
+		if (window.name != "reloadFlag") {
+			location.reload();
+			window.name = "reloadFlag";
+		}
+	};
+
 	rl.print("now loading...");
 	let count = 0;
 	const intervalId = setInterval(() => {
@@ -119,6 +126,7 @@ const meta = {
 		count++;
 		if (count === 3) {
 			clearInterval(intervalId);
+			reloadOnce();
 			term.refresh(0, term.rows - 1);
 			fitaddon.fit();
 			rl.print("\x1b[2J");
