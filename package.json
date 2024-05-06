@@ -8,8 +8,7 @@
 		"postbuild": "pagefind --site dist",
 		"preview": "astro preview",
 		"format": "prettier -w --cache . && prettier -w --cache **/*.astro",
-		"check": "astro check",
-		"copy": "rimraf src/content/post && cp -aR /mnt/c/Users/1308y/Documents/post src/content/post"
+		"check": "astro check"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.5.9",
