@@ -169,11 +169,11 @@ import { YouTube } from "astro-embed";
 - エイリアスを設定
 
   ```bash
-  echo "alias ojpy=\"oj t -c 'python3 main.py'\"" >> ~/.bashrc
+  echo "alias ojt=\"oj t -c 'python3 main.py'\"" >> ~/.bashrc
   ```
 
   ```bash
-  echo 'alias accpy="acc s -- main.py --language 5078"' >> ~/.bashrc
+  echo 'alias accs="acc s -- main.py --language 5078 --yes --wait 1"' >> ~/.bashrc
   ```
 
   ```bash
@@ -183,10 +183,6 @@ import { YouTube } from "astro-embed";
 環境構築（完）
 
 ## 実際に使ってみる編
-
-こんな感じになる
-
-<YouTube id="kmU2amU8lOY" />
 
 - 試しに解いてみる
 
@@ -207,13 +203,13 @@ import { YouTube } from "astro-embed";
 - 自動テスト
 
   ```bash
-  ojpy
+  ojt
   ```
 
 - 提出
 
   ```bash
-  accpy
+  accs
   ```
 
 - 次の問題を解く
