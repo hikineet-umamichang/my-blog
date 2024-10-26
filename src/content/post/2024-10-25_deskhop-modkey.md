@@ -1,13 +1,13 @@
 ---
 title: "DeskHopのHotkeyを変更したい"
 publishDate: "2024/10/25"
-description: "Change the hotkey for DeskHop"
+description: "Change hotkey in DeskHop after version 0.63"
 tags: ["gaget"]
 ---
 
 ## はじめに
-4月に作ったDeskHopを使い始めてから半年経ちました。
-マウス無しで2台のPCを行き来できるのは想像以上に便利で、手放せなくなっています。
+4月にDeskHopを自作してから半年経ちました。
+マウス無しで2台のPCを行き来できるのは想像以上にめちゃくちゃ便利で、手放せなくなっています。
 最近はWebで設定できるGUIなども追加されて、ますます便利です。
 
 ところで、2024年8付きにアップデートされたv0.63以降、PC切り替えのHotkeyが「CapsLock」から「左Ctrl + CapsLock」へ変更されました。
@@ -19,7 +19,7 @@ tags: ["gaget"]
 というわけで、もともとのHotkeyに戻していきましょう。
 
 ## 手順
-クローンして、
+cloneして、
 ```bash
 git clone https://github.com/hrvach/deskhop.git
 cd $_
@@ -49,6 +49,6 @@ cmake -S . -B build
 cmake --build build
 ```
 
-あとは「左Ctrl + 右Shift + c + o」でコンフィグモードに入って、出現したUSBドライブに、buildディレクトリの直下に入っている「deskhop.uf2」をぶち込んでアップデート
+あとは「左Ctrl + 右Shift + c + o」でコンフィグモードに入って、出現したUSBドライブにbuildディレクトリの直下に入っている「deskhop.uf2」をぶち込んで終了です
 
-（以上）deskhop.uf2
+（以上）
