@@ -1,8 +1,8 @@
 ---
 import SocialList from "@/components/SocialList.astro";
 import PostPreview from "@/components/blog/PostPreview.astro";
+import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
-import { getAllPosts, sortMDByDate } from "@/utils";
 
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
@@ -61,14 +61,3 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 		</ul>
 	</section>
 </PageLayout>
-
-<!-- 
-"Umamichang's Nest"へようこそ。
-nestとは巣や居場所の意味、
-ここは、作ったものや書いたものをのっける場所が欲しくて作った私のためのねぐらです。
-なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
-
-Welcome to Umamichang's Nest,
-where, as the saying goes, 'every bird finds its nest.'
-Here, nestled within these digital branches, I've fashioned a haven, a sanctuary, if you will, to house my creations and musings. As the poet Rumi once mused, 'Let yourself be silently drawn by the strange pull of what you really love. It will not lead you astray.' So, if anything within these virtual walls resonates with you, consider it a serendipitous encounter.
--->
