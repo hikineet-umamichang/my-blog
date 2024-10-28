@@ -13,7 +13,7 @@ export type SiteConfig = {
 		link: string;
 		pingback?: string;
 	};
-}
+};
 
 export interface PaginationLink {
 	srLabel?: string;
@@ -84,4 +84,9 @@ export interface Summary {
 	value: string;
 }
 
-export type AdmonitionType = "tip" | "note" | "important" | "caution" | "warning";
+export type AdmonitionType =
+	| "tip"
+	| "note"
+	| "important"
+	| "caution"
+	| "warning";

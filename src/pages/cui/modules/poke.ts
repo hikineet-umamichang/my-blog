@@ -1,7 +1,7 @@
 export async function fetchPokemonImage(pokemonNum: string): Promise<string> {
 	try {
 		let apiUrl = "";
-		if (!Number.isNaN(parseInt(pokemonNum))) {
+		if (!Number.isNaN(Number.parseInt(pokemonNum))) {
 			apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonNum}`;
 		} else {
 			const randomNum = Math.floor(Math.random() * 1024) + 1;
@@ -11,14 +11,18 @@ export async function fetchPokemonImage(pokemonNum: string): Promise<string> {
 
 		const res = await fetch(apiUrl);
 		if (!res.ok) {
-			throw new Error(`Failed to fetch the Pokemon data: ${res.status} ${res.statusText}`);
+			throw new Error(
+				`Failed to fetch the Pokemon data: ${res.status} ${res.statusText}`,
+			);
 		}
 		const data = await res.json();
 		const imageUrl = data.sprites.front_default;
 
 		const imageRes = await fetch(imageUrl);
 		if (!imageRes.ok) {
-			throw new Error(`Failed to fetch the image: ${imageRes.status} ${imageRes.statusText}`);
+			throw new Error(
+				`Failed to fetch the image: ${imageRes.status} ${imageRes.statusText}`,
+			);
 		}
 		const imageBlob = await imageRes.blob();
 		const imageArrayBuffer = await imageBlob.arrayBuffer();

@@ -1,7 +1,17 @@
 import type { AdmonitionType } from "@/types";
 import { type Properties, h as _h } from "hastscript";
-import type { Node, Paragraph as P, Parent, PhrasingContent, Root } from "mdast";
-import type { Directives, LeafDirective, TextDirective } from "mdast-util-directive";
+import type {
+	Node,
+	Paragraph as P,
+	Parent,
+	PhrasingContent,
+	Root,
+} from "mdast";
+import type {
+	Directives,
+	LeafDirective,
+	TextDirective,
+} from "mdast-util-directive";
 import { directiveToMarkdown } from "mdast-util-directive";
 import { toMarkdown } from "mdast-util-to-markdown";
 import { toString as mdastToString } from "mdast-util-to-string";
@@ -9,7 +19,13 @@ import type { Plugin } from "unified";
 import { visit } from "unist-util-visit";
 
 // Supported admonition types
-const Admonitions = new Set<AdmonitionType>(["tip", "note", "important", "caution", "warning"]);
+const Admonitions = new Set<AdmonitionType>([
+	"tip",
+	"note",
+	"important",
+	"caution",
+	"warning",
+]);
 
 /** Checks if a string is a supported admonition type. */
 function isAdmonition(s: string): s is AdmonitionType {
@@ -88,10 +104,14 @@ export const remarkAdmonitions: Plugin<[], Root> = () => (tree) => {
 		}
 
 		// Do not change prefix to AD, ADM, or similar, adblocks will block the content inside.
-		const aside = h("aside", { "aria-label": title, class: `aside aside-${admonitionType}` }, [
-			h("p", { class: "aside-title", "aria-hidden": "true" }, [...titleNode]),
-			h("div", { class: "aside-content" }, node.children),
-		]);
+		const aside = h(
+			"aside",
+			{ "aria-label": title, class: `aside aside-${admonitionType}` },
+			[
+				h("p", { class: "aside-title", "aria-hidden": "true" }, [...titleNode]),
+				h("div", { class: "aside-content" }, node.children),
+			],
+		);
 
 		parent.children[index] = aside;
 	});

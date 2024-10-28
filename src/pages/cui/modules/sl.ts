@@ -19,14 +19,14 @@ const slSteams: string[][] = [
 
 // prettier-ignore
 const slBody: string[] = [
-        `      ====        ________                ___________ `,
-        `  _D _|  |_______/        \\__I_I_____===__|_________| `,
-        `   |(_)---  |   H\\________/ |   |        =|___ ___|      _________________         `,
-        `   /     |  |   H  |  |     |   |         ||_| |_||     _|                \\_____A  `,
-        `  |      |  |   H  |__--------------------| [___] |   =|                        |  `,
-        `  | ________|___H__/__|_____/[][]~\\_______|       |   -|                        |  `,
-        `  |/ |   |-----------I_____I [][] []  D   |=======|____|________________________|_ `,
-	];
+	`      ====        ________                ___________ `,
+	`  _D _|  |_______/        \\__I_I_____===__|_________| `,
+	`   |(_)---  |   H\\________/ |   |        =|___ ___|      _________________         `,
+	`   /     |  |   H  |  |     |   |         ||_| |_||     _|                \\_____A  `,
+	`  |      |  |   H  |__--------------------| [___] |   =|                        |  `,
+	`  | ________|___H__/__|_____/[][]~\\_______|       |   -|                        |  `,
+	`  |/ |   |-----------I_____I [][] []  D   |=======|____|________________________|_ `,
+];
 
 const slWheels: string[][] = [
 	[
@@ -62,7 +62,7 @@ const slWheels: string[][] = [
 ];
 
 const slBody_add_help = (count: number) => {
-	let tmp = slBody;
+	const tmp = slBody;
 
 	if (count % 4 == 0) {
 		tmp[3] = tmp[3].replace("|_| |_|", "(o) (o)");
@@ -91,16 +91,24 @@ export const sl = (args: string[], h: number, w: number) => {
 
 		for (let i = 0; i < 6; i++) {
 			tmp +=
-				(" ".repeat(w) + slSteams[time % 2][i] + " ".repeat(w)).slice(time, time + w - 1) + "\n";
+				(" ".repeat(w) + slSteams[time % 2][i] + " ".repeat(w)).slice(
+					time,
+					time + w - 1,
+				) + "\n";
 		}
 
 		for (let i = 0; i < 7; i++) {
-			tmp += (" ".repeat(w) + slBody[i] + " ".repeat(w)).slice(time, time + w - 1) + "\n";
+			tmp +=
+				(" ".repeat(w) + slBody[i] + " ".repeat(w)).slice(time, time + w - 1) +
+				"\n";
 		}
 
 		for (let i = 0; i < 3; i++) {
 			tmp +=
-				(" ".repeat(w) + slWheels[time % 6][i] + " ".repeat(w)).slice(time, time + w - 1) + "\n";
+				(" ".repeat(w) + slWheels[time % 6][i] + " ".repeat(w)).slice(
+					time,
+					time + w - 1,
+				) + "\n";
 		}
 
 		animation.push(tmp);
