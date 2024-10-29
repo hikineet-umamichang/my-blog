@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
 	description: "書き散らかしと雑記",
 	// HTML lang property, found in src/layouts/Base.astro L:18 & astro.config.ts L:48
 	lang: "ja",
-	// Meta property, found in src/components/BaseHead.astro L:42
+	// Meta property, found in src/components/BaseHead. L:42
 	ogLocale: "ja",
 	// Option to sort posts by updatedDate if set to true (if property exists). Default (false) will sort by publishDate
 	sortPostsByUpdatedDate: false,
@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
 	title: "Umamichang's Nest",
 	webmentions: {
 		// Webmention.io API endpoint. Get your own here: https://webmention.io/, and follow this blog post: https://astro-cactus.chriswilliams.dev/posts/webmentions/
-		link: "https://webmention.io/astro-cactus.chriswilliams.dev/webmention",
+		link: "https://webmention.io/umamichang.dev/webmention",
 	},
 };
 
