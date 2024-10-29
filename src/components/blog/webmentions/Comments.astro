@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 import type { WebmentionsChildren } from "@/types";
 
 interface Props {
@@ -11,8 +12,7 @@ const { mentions } = Astro.props;
 const validComments = ["mention-of", "in-reply-to"];
 
 const comments = mentions.filter(
-	(mention) =>
-		validComments.includes(mention["wm-property"]) && mention.content?.text,
+	(mention) => validComments.includes(mention["wm-property"]) && mention.content?.text,
 );
 
 /**
@@ -70,12 +70,12 @@ const comments = mentions.filter(
 									<span class="hidden" id="cmt-source">
 										Vist the source of this webmention
 									</span>
-									{/* <Icon
+									<Icon
 										aria-hidden="true"
 										class="h-5 w-5"
 										focusable="false"
 										name="mdi:open-in-new"
-									/> */}
+									/>
 								</a>
 							</div>
 							<p class="mb-0 mt-1 break-words [word-break:break-word]">{mention.content?.text}</p>
