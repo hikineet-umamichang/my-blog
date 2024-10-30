@@ -25,7 +25,7 @@ export const siteConfig: SiteConfig = {
 	title: "Umamichang's Nest",
 	webmentions: {
 		// Webmention.io API endpoint. Get your own here: https://webmention.io/, and follow this blog post: https://astro-cactus.chriswilliams.dev/posts/webmentions/
-		link: "https://webmention.io/umamichang.dev/webmention",
+		link: "https://webmention.io/api/mentions.html?token=oBaY_qGVwbdMXmAJ0JfPrQ",
 	},
 };
 
@@ -78,6 +78,6 @@ export const expressiveCodeOptions: AstroExpressiveCodeOptions = {
 		return `[data-theme="${theme.name}"]`;
 	},
 	// One dark, one light theme => https://expressive-code.com/guides/themes/#available-themes
-	themes: ["github-light", "dracula"],
+	themes: ["dracula", "github-light"],
 	useThemedScrollbars: false,
 };
