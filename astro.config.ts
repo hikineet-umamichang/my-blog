@@ -46,7 +46,7 @@ export default defineConfig({
 			// short_name: "Astro_Cactus",
 			description: siteConfig.description,
 			lang: siteConfig.lang,
-			icon: "public/favicon.ico", // the source for generating favicon & icons
+			icon: "public/favicon.jpg", // the source for generating favicon & icons
 			icons: [
 				{
 					src: "icons/apple-touch-icon.png", // used in src/components/BaseHead.astro L:26
@@ -69,9 +69,9 @@ export default defineConfig({
 			theme_color: "#2bbc8a",
 			display: "standalone",
 			config: {
-				insertFaviconLinks: true,
-				insertThemeColorMeta: true,
-				insertManifestLink: true,
+				insertFaviconLinks: false,
+				insertThemeColorMeta: false,
+				insertManifestLink: false,
 			},
 		}),
 	],
