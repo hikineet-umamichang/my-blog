@@ -102,13 +102,6 @@ const meta = {
 		rl.read("\n$ ").then(processLine);
 	}
 
-	const reloadOnce = () => {
-		if (window.name != "reloadFlag") {
-			location.reload();
-			window.name = "reloadFlag";
-		}
-	};
-
 	rl.print("now loading...");
 	let count = 0;
 	const intervalId = setInterval(() => {
@@ -124,17 +117,14 @@ const meta = {
 		rl.print("\b");
 
 		count++;
-		if (count === 3) {
+		if (count === 10) {
 			clearInterval(intervalId);
-			reloadOnce();
-			term.refresh(0, term.rows - 1);
-			fitaddon.fit();
 			rl.print("\x1b[2J");
 			rl.print("\x1b[1G");
 			rl.println('To see what commands are available, run "help" command.');
 			readLine();
 		}
-	}, 500); // 500ミリ秒 = 0.5秒
+	}, 300); // 500ミリ秒 = 0.5秒
 </script>
 <style>
 	#app {

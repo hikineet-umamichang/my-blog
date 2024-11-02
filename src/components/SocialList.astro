@@ -8,13 +8,11 @@ import { Icon } from "astro-icon/components";
 */
 const socialLinks: {
 	friendlyName: string;
-	isWebmention?: boolean;
 	link: string;
 	name: string;
 }[] = [
 	{
 		friendlyName: "Github",
-		isWebmention: true,
 		link: "https://github.com/hikineet-umamichang",
 		name: "mdi:github",
 	},
@@ -28,11 +26,11 @@ const socialLinks: {
 		link: "https://atcoder.jp/users/umami_chang",
 		name: "Atcoder",
 	},
-	{
-		friendlyName: "Twitter",
-		link: "https://twitter.com/umamichang_dev",
-		name: "twitter",
-	},
+	// {
+	// 	friendlyName: "Twitter",
+	// 	link: "https://twitter.com/umamichang_dev",
+	// 	name: "twitter",
+	// },
 ];
 ---
 
@@ -40,14 +38,9 @@ const socialLinks: {
 	<p>Find me on</p>
 	<ul class="flex flex-1 items-center gap-x-2 sm:flex-initial">
 		{
-			socialLinks.map(({ friendlyName, isWebmention, link, name }) => (
+			socialLinks.map(({ friendlyName, link, name }) => (
 				<li class="flex">
-					<a
-						class="inline-block sm:hover:text-link"
-						href={link}
-						rel={`noreferrer ${isWebmention ? "me authn" : ""}`}
-						target="_blank"
-					>
+					<a class="inline-block sm:hover:text-link" href={link} target="_blank">
 						<Icon aria-hidden="true" class="h-6 w-6" focusable="false" name={name} />
 						<span class="sr-only">{friendlyName}</span>
 					</a>

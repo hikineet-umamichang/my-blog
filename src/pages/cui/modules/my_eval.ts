@@ -18,7 +18,6 @@ export async function my_eval(prompt: string, w: number, h: number) {
 		case "help":
 			return help(args);
 		case "bio":
-			// window.open("https://twitter.com/umamichang_dev");
 			return bio(args);
 		case "sl":
 			return sl(args, h, w);

@@ -4,6 +4,9 @@ import PostPreview from "@/components/blog/PostPreview.astro";
 import { getAllPosts, sortMDByDate } from "@/data/post";
 import PageLayout from "@/layouts/Base.astro";
 
+import { Image } from "astro:assets";
+import aboutImg from "@/assets/logo.jpg";
+
 const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
@@ -11,20 +14,23 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<h1 class="title mb-6">It’s nice to have you here</h1>
-		<p class="mb-4">
-			Welcome to "Umamichang's Nest". The term "nest" conveys a sense of a cozy abode or a
-			sanctuary, and indeed, this is my own cozy corner crafted out of the desire for a space to
-			share my creations and writings. Should anything here strike a chord with you, dear visitor,
-			it would be my utmost delight.
-		</p>
-		<p>
-			"Umamichang's Nest"へようこそ。 nestとは巣や居場所の意味。
-			ここは、作ったものや書いたものを保存する場所として作った私自身のためのねぐらです。
-			なにかひとつでも、訪れたあなたの琴線に触れるものがあれば幸いです。
-		</p>
+		<div class="flex justify-center">
+			<Image
+				alt="Jerryfish"
+				fetchpriority="high"
+				loading="eager"
+				src={aboutImg}
+				class="transition duration-300 ease-in-out hover:grayscale"
+			/>
+		</div>
+		<br />
 
+		<h1 class="title">About</h1>
+		<p>
+			ここはヒキニートうまみちゃんのホームページです。作ったアプリや書き散らかしたものをまとめています。
+		</p>
 		<SocialList />
+		<br />
 	</section>
 
 	<section aria-label="my works" class="mt-16">
@@ -38,7 +44,7 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 				</tr>
 				<tr>
 					<td><a href="/cui/" class="cactus-link">💻CUIモード</a></td>
-					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ(※現在工事中)</td>
+					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ</td>
 				</tr>
 				<!-- <tr>
 				<td>AIワードウルフ</td>
