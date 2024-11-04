@@ -1,0 +1,55 @@
+---
+import PageLayout from "@/layouts/Base.astro";
+
+const meta = {
+	description: "contact form",
+	title: "お問い合わせ",
+};
+---
+
+<PageLayout meta={meta}>
+	<div class="mx-auto max-w-screen-md px-4 py-8 lg:py-16">
+		<h1 class="title mb-6">Contact</h1>
+		<form action="https://ssgform.com/s/hxnEujgMTjcJ" class="space-y-8" method="post">
+			<div class="from-group">
+				<label for="name" class="mb-2 block text-sm font-medium">name</label>
+				<input
+					type="text"
+					id="name"
+					name="name"
+					class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+					placeholder="Please input your name."
+					required
+				/>
+			</div>
+
+			<div class="from-group">
+				<label for="email" class="mb-2 block text-sm font-medium">email</label>
+				<input
+					type="email"
+					id="email"
+					name="email"
+					class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+					placeholder="your-email@example.com"
+					required
+				/>
+			</div>
+
+			<div class="form-group sm:col-span-2">
+				<label for="message" class="mb-2 block text-sm font-medium">message</label>
+				<textarea
+					id="message"
+					name="message"
+					class="focus:ring-primary-500 focus:border-primary-500 dark:focus:ring-primary-500 dark:focus:border-primary-500 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 shadow-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+					placeholder="Leave a comment..."
+					required></textarea>
+			</div>
+
+			<button
+				type="submit"
+				class="rounded-lg px-6 py-3 font-semibold text-white shadow-md transition-colors duration-300 hover:bg-blue-600 dark:bg-blue-700 dark:text-white dark:hover:bg-blue-800"
+				>submit</button
+			>
+		</form>
+	</div>
+</PageLayout>

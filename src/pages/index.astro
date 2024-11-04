@@ -14,17 +14,6 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 <PageLayout meta={{ title: "Home" }}>
 	<section>
-		<div class="flex justify-center">
-			<Image
-				alt="Jerryfish"
-				fetchpriority="high"
-				loading="eager"
-				src={aboutImg}
-				class="transition duration-300 ease-in-out hover:grayscale"
-			/>
-		</div>
-		<br />
-
 		<h1 class="title">About</h1>
 		<p>
 			ここはヒキニートうまみちゃんのホームページです。作ったアプリや書き散らかしたものをまとめています。
@@ -35,23 +24,16 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 	<section aria-label="my works" class="mt-16">
 		<h2 class="title mb-4 text-xl">Contents</h2>
-
-		<table class="table-auto" cellpadding="5">
-			<tbody>
-				<tr>
-					<td><a href="/posts/" class="cactus-link">📜ブログ</a></td>
-					<td>今見てるこれ。Astroのテンプレート「Astro Cactus」をカスタマイズした静的サイト</td>
-				</tr>
-				<tr>
-					<td><a href="/cui/" class="cactus-link">💻CUIモード</a></td>
-					<td>Xterm.jsを利用したターミナルっぽいウェブアプリ</td>
-				</tr>
-				<!-- <tr>
-				<td>AIワードウルフ</td>
-				<td>ChatGPTを利用したワードウルフのお題作成アプリ</td>
-			</tr> -->
-			</tbody>
-		</table>
+		<ul class="space-y-4">
+			<li class="flex flex-col gap-x-2 sm:flex-row">
+				<a href="posts/" class="min-w-[120px]">📜ブログ</a>
+				<p>今見てるこれ。Astroのテンプレート「Astro Cactus」をカスタマイズした静的サイト</p>
+			</li>
+			<li class="flex flex-col gap-x-2 sm:flex-row">
+				<a href="cui" class="min-w-[120px]">💻CUI</a>
+				<p>Xterm.jsを利用したターミナルっぽいウェブアプリ</p>
+			</li>
+		</ul>
 	</section>
 
 	<section aria-label="Blog post list" class="mt-16">
@@ -66,4 +48,15 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 			}
 		</ul>
 	</section>
+
+	<br />
+	<div class="flex justify-center">
+		<Image
+			alt="Jerryfish"
+			fetchpriority="high"
+			loading="eager"
+			src={aboutImg}
+			class="transition duration-300 ease-in-out hover:grayscale"
+		/>
+	</div>
 </PageLayout>
