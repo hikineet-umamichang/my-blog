@@ -10,6 +10,9 @@ const meta = {
 <PageLayout meta={meta}>
 	<div class="mx-auto max-w-screen-md px-4 py-8 lg:py-16">
 		<h1 class="title mb-6">Contact</h1>
+		<script src="https://www.google.com/recaptcha/api.js" async defer
+		></script><!-- 専用スクリプトの読み込み必要 -->
+
 		<form action="https://ssgform.com/s/hxnEujgMTjcJ" class="space-y-8" method="post">
 			<div class="from-group">
 				<label for="name" class="mb-2 block text-sm font-medium">name</label>
@@ -45,6 +48,8 @@ const meta = {
 					required></textarea>
 			</div>
 
+			<div class="g-recaptcha" data-sitekey="6LfPypUqAAAAAAZELWn0PQxrBPIHYFo_8B9d0d1P">
+			</div><!-- 専用タグの設置必要 -->
 			<button
 				type="submit"
 				class="inline-flex items-center rounded bg-gray-500 px-4 py-2 font-bold text-gray-100 hover:bg-gray-600"
